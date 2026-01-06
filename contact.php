@@ -1,3 +1,16 @@
+<?php
+    $name = $email = $dob = $happy ='';
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $name = htmlspecialchars($_POST['name']);
+        $email = htmlspecialchars($_POST['email']);
+        $dob = htmlspecialchars($_POST['dob']);
+        $happy = htmlspecialchars($_POST['happy']);
+    }
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +27,15 @@
 
         <form action="contact.php" method="POST">
             <div class="form-group">
-                <label id="name">Name:</label>
+                <label for="name">Name:</label>
                 <input type="text" name="name" id="name" required>
             </div>
             <div class="form-group">
-                <label id="email">Email:</label>
+                <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label id="dob">Date of Birth:</label>
+                <label for="dob">Date of Birth:</label>
                 <input type="date" id="dob" name="dob">
             </div>
             <div class="form-group">
@@ -34,6 +47,16 @@
             <button type="submit">Submit</button>
         </div>
         </form>
+
+    <?php if ($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
+    <div class="results">
+        <p>Thanks for submitting data!</p>
+        <p><strong>Name:</strong><?php echo $name ?></p>
+        <p><strong>Email:</strong><?php echo $email ?></p>
+        <p><strong>DOB:</strong><?php echo $dob ?></p>
+        <p><strong>Are you happy?</strong><?php echo $happy ?></p>
+    </div>
+    <?php endif; ?>
 </div>
 </body>
 </html>
