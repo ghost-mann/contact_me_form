@@ -1,4 +1,12 @@
+body {
+    background-color: #ADD8E6;
+    font-family: sans-serif;
+    line-height:2.5;
+}
 h1 {
-    color:red;
     text-align: center;
+}
+.container {
+    text-align: center;
+
 }
